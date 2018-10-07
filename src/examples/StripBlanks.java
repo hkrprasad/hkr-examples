@@ -31,6 +31,7 @@ public class StripBlanks {
 					}	
 				}
 			}
+			if (wordBuf.length() != 0) resultStrBuf.append(wordBuf);
 		}
 		baseString = resultStrBuf.toString().trim();
 		
