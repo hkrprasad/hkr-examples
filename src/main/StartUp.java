@@ -7,7 +7,7 @@ class StartUp{
 	
 	public static void main(String[] args) {
 	
-		String testString = "    This     is a    test String   ";
+		String testString = "    Time to    get   going   along";
 		
 		StripBlanks strpBlanks = new StripBlanks(testString);
 		System.out.println("The output string is : " +strpBlanks.removeBlanks()+ "::");
