@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import examples.BalancedStr;
 
+//Test class to test the BalancedStr class
 public class TestBalancedStr {
 	
 	BalancedStr balStr = new BalancedStr();
