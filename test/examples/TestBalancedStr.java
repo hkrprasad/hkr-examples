@@ -1,4 +1,4 @@
-package test;
+package examples;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -36,7 +36,6 @@ public class TestBalancedStr {
     	
     	int[] actualResults =  balStr.balanceAndCheck(exprs, maxReps);
     	Assert.assertArrayEquals(expectedResults, actualResults);
-    	
     	
 	}
 	
