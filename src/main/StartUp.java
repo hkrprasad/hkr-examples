@@ -7,6 +7,7 @@ import java.math.*;
 import java.util.regex.*;
 
 import examples.BalancedStr;
+import examples.SmallestDivisible;
 
 public class StartUp {
 	
@@ -22,6 +23,9 @@ public class StartUp {
     	 for (int res_i = 0; res_i < retArr.length; res_i++) {
              System.out.println("Input Str is " + exprs[res_i] + " Result: " + String.valueOf(retArr[res_i]));
     	 }
+    	 
+    	 SmallestDivisible smallDiv = new SmallestDivisible();
+    	 smallDiv.getSmallestDivisible(10);
     }
 
     /**
