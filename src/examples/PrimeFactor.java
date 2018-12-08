@@ -8,7 +8,7 @@ package examples;
 
 public class PrimeFactor {
 
-	public boolean isPrime(long number) {
+	public static boolean isPrime(long number) {
 		
 		long firstMultiple = 2;
 		long secondMultiple = 2;
