@@ -24,5 +24,144 @@ public class GridLargestProduct {
 			{ 01,70,54,71,83,51,54,69,16,92,33,48,61,43,52, 1,89,19,67,48 }
 			
 	};
+	
+	public enum GridDirections { EAST , SOUTHEAST , SOUTH , SOUTHWEST  };
+	
+	int getProductEast(int iX, int iY, int iLen) {
+		
+		int productEast = 0;
+		
+		if (iY+iLen <= NUM_GRID[iX].length) {
+			productEast = 1;
+			
+			for (int iLoop = 0; iLoop < iLen; iLoop++) {
+				
+				productEast*=NUM_GRID[iX][iY + iLoop];
+	
+				if (0==productEast) break;
+	
+			}
+			
+		}
+		
+		return productEast;
+	}
+	
+	
+	int getProductSouthEast(int iX, int iY, int iLen)  {
+	
+		int productSouthEast = 0;
+		
+		if ((iY+iLen <= NUM_GRID[iX].length) && (iX+iLen <= NUM_GRID.length)) {
+			productSouthEast = 1;
+			
+			for (int iLoop = 0; iLoop < iLen; iLoop++) {
+				
+				productSouthEast*=NUM_GRID[iX + iLoop][iY + iLoop];
+				
+				if (0 == productSouthEast) break;
+				
+			}
+			
+			
+		}
+		
+		
+		return productSouthEast;
+	}
+
+	int getProductSouth(int iX, int iY, int iLen)  {
+		
+		int productSouth = 0;
+		
+		if (iX+iLen <= NUM_GRID.length) {
+			productSouth = 1;
+			
+			for (int iLoop = 0; iLoop < iLen; iLoop++) {
+				productSouth*=NUM_GRID[iX+iLoop][iY];
+				if (0 == productSouth) break;
+				
+			}
+			
+		}
+		
+		return productSouth;
+	}
+
+	int getProductSouthWest(int iX, int iY, int iLen)  {
+		
+		int productSouthWest = 0;
+		
+		if ((iY - iLen + 1 >=0 ) && (iX + iLen <= NUM_GRID.length)) {
+			
+			productSouthWest =  1;
+			
+			for (int iLoop = 0 ; iLoop < iLen; iLoop++) {
+			//	System.out.println("iX=" + iX + " iY=" + iY + " iLoop=" + iLoop);
+				
+				productSouthWest*=NUM_GRID[iX+iLoop][iY-iLoop];
+				if (0 == productSouthWest) break;
+				
+			}
+		}
+		
+		return productSouthWest;
+	}
+
+	
+	public int getLargestProduct(int iLen) {
+		int largestProduct = 0;
+		
+		int iXPos = 0, iYPos = 0;
+		GridDirections gridDir = GridDirections.EAST;
+		
+				
+		for (int iX = 0; iX < NUM_GRID.length; iX++)
+			for (int iY = 0 ; iY < NUM_GRID[iX].length; iY++) {
+				int curProduct = getProductEast(iX, iY, iLen);
+				
+				if (curProduct > largestProduct) {
+					largestProduct = curProduct;
+					iXPos = iX;
+					iYPos = iY;
+					gridDir = GridDirections.EAST;
+					
+				}
+				
+				curProduct = getProductSouthEast(iX, iY, iLen);
+				if (curProduct > largestProduct) {
+					largestProduct = curProduct;
+					iXPos = iX;
+					iYPos = iY;
+					gridDir = GridDirections.SOUTHEAST;	
+				}
+				
+				curProduct = getProductSouth(iX, iY, iLen);
+				if (curProduct > largestProduct) {
+					largestProduct = curProduct;
+					iXPos = iX;
+					iYPos = iY;
+					gridDir = GridDirections.SOUTH;
+					
+				}
+				curProduct = getProductSouthWest(iX, iY, iLen);
+				if (curProduct > largestProduct) {
+					largestProduct = curProduct;
+					iXPos = iX;
+					iYPos = iY;
+					gridDir = GridDirections.SOUTHWEST;
+					
+				}
+				
+				
+			}
+		
+		System.out.println("The Largest Product of " + iLen + " numbers is :" + largestProduct );
+		
+		System.out.println("The Grid Position is : X = " + iXPos + " Y = " + iYPos + " Direction = " + gridDir);
+		
+		return largestProduct;
+		
+	}
 
 }
