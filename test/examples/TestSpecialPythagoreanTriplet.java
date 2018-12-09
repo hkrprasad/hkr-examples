@@ -7,6 +7,7 @@ public class TestSpecialPythagoreanTriplet {
 	@Test
 	public void testGet() {
 		
+		
 		SpecialPythagoreanTriplet spt = new SpecialPythagoreanTriplet();
 		
 		Assert.assertEquals(480, spt.getSpecialPyTripletProduct(24));
