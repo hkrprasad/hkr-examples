@@ -8,13 +8,14 @@ import java.util.regex.*;
 
 import examples.BalancedStr;
 import examples.SmallestDivisible;
+import examples.DiningPhilosophers;
 
 public class StartUp {
 	
     
     public static void main (String[] args) {
     	
-    	String exprs[] = { "<<>><<>>>>>>", "<><>><>", "<<>><","<>><<>><"};
+/*    	String exprs[] = { "<<>><<>>>>>>", "<><>><>", "<<>><","<>><<>><"};
     	int maxReps[] = { 8,1,1,8};
     	
     	BalancedStr balStr = new BalancedStr();
@@ -25,7 +26,9 @@ public class StartUp {
     	 }
     	 
     	 SmallestDivisible smallDiv = new SmallestDivisible();
-    	 smallDiv.getSmallestDivisible(10);
+    	 smallDiv.getSmallestDivisible(10);*/
+
+		DiningPhilosophers.StartEating(6);
     }
 
     /**
